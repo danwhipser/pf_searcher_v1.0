@@ -1,4 +1,4 @@
-# API Key 配置说明
+﻿# API Key 配置说明
 
 项目不会把真实 API key 放进代码。
 
@@ -21,7 +21,7 @@
 也可以用交互式脚本写入配置：
 
 ```powershell
-python scripts\configure_api_keys.py
+python scripts\config\configure_api_keys.py
 ```
 
 `config/app.env` 和根目录 `.env` 都会被 `.gitignore` 忽略，不应提交到 GitHub。

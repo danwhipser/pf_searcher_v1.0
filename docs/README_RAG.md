@@ -1,4 +1,4 @@
-# PF 法术 RAG 系统使用指南
+﻿# PF 法术 RAG 系统使用指南
 
 ## 快速开始
 
@@ -23,7 +23,7 @@ LLM_MODEL=deepseek-ai/DeepSeek-V3.2
 首次使用前需要构建索引：
 
 ```bash
-python scripts/build_index.py
+python scripts/build/build_index.py
 ```
 
 这将：
@@ -63,7 +63,7 @@ API 文档：`http://localhost:8000/docs`
 运行评估脚本：
 
 ```bash
-python scripts/evaluate.py
+python scripts/build/evaluate.py
 ```
 
 将输出：
@@ -111,6 +111,6 @@ PF_RAG/
 
 ## 故障排除
 
-- **索引不存在**：运行 `python scripts/build_index.py`
+- **索引不存在**：运行 `python scripts/build/build_index.py`
 - **API 调用失败**：检查 `.env` 中的 API Key 和网络连接
 - **前端无法访问**：确保在项目根目录运行 `run_web.py`

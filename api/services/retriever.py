@@ -347,7 +347,7 @@ class HybridRetriever:
             type_label = "神话法术" if spell.spell_type == "mythic" else "普通法术"
             summary = f"法术名称：{spell.name}\n法术类型：{type_label}\n学派：{spell.school}\n等级：{spell.level_raw}\n"
             summary += f"施法时间：{spell.cast_time}\n成分：{spell.components}\n"
-            summary += f"范围：{spell.range}\n目标：{spell.target}\n"
+            summary += f"范围：{spell.range}\n区域：{spell.area}\n目标：{spell.target}\n"
             summary += f"持续：{spell.duration}\n豁免：{spell.save}\n法术抗力：{spell.spell_resistance}"
             context_parts.append(summary)
             

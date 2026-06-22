@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PF 自动车卡</title>
+  <link rel="stylesheet" href="assets/css/character.css" />
+</head>
+<body>
+  <main class="sheet-app">
+    <header class="sheet-header">
+      <div>
+        <h1>PF 自动车卡</h1>
+        <p id="save-status" class="save-status">未保存</p>
+        <nav class="section-links" aria-label="功能导航">
+          <span class="section-label">车卡器</span>
+          <a class="active" href="index.html#character" target="_top">角色卡</a>
+          <span class="section-label">资料查询</span>
+          <a href="index.html#spells" target="_top">法术</a>
+          <a href="index.html#feats" target="_top">专长</a>
+          <a href="index.html#classes" target="_top">职业</a>
+          <a href="index.html#items" target="_top">奇物</a>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <button id="new-character-btn" type="button" class="secondary-btn">新建</button>
+        <button id="export-json-btn" type="button">导出 JSON</button>
+        <label class="import-btn" for="import-json-input">导入 JSON</label>
+        <input id="import-json-input" type="file" accept="application/json" hidden />
+      </div>
+    </header>
+
+    <section class="workbench">
+      <aside class="step-nav" aria-label="车卡步骤">
+        <div class="nav-title">步骤</div>
+        <div id="step-list" class="step-list"></div>
+      </aside>
+
+      <section class="sheet-panel" aria-label="角色卡编辑">
+        <div class="panel-heading">
+          <div>
+            <h2 id="step-title">基础信息</h2>
+            <p id="step-subtitle">填写角色核心资料。</p>
+          </div>
+          <div id="quick-summary" class="quick-summary"></div>
+        </div>
+        <div id="step-content" class="step-content"></div>
+      </section>
+
+      <aside class="library-panel" aria-label="规则资料浏览器">
+        <div class="library-header">
+          <h2>规则资料</h2>
+          <p id="library-status">加载中...</p>
+        </div>
+        <div class="library-tabs" id="library-tabs">
+          <button type="button" data-library="classes" class="active">职业</button>
+          <button type="button" data-library="feats">专长</button>
+          <button type="button" data-library="spells">法术</button>
+          <button type="button" data-library="items">奇物</button>
+        </div>
+        <input id="library-search" class="library-search" type="search" placeholder="搜索资料并添加到角色卡" />
+        <div id="library-results" class="library-results"></div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="assets/js/character.js?v=20260615-class-level"></script>
+</body>
+</html>

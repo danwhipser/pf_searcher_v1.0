@@ -339,6 +339,7 @@ def canonicalize_profession(name: str) -> str:
         "唤魂者": "唤魂师",
         "唤灵师": "唤魂师",
         "唤师师": "唤魂师",
+        "巫师": "法师",
     }
     
     # 处理 "牧师/先知" 的变体
@@ -361,6 +362,7 @@ def build_search_text(spell: Dict[str, any]) -> str:
         spell.get("cast_time", ""),
         spell.get("components", ""),
         spell.get("range", ""),
+        spell.get("area", ""),
         spell.get("target", ""),
         spell.get("duration", ""),
         spell.get("save", ""),

@@ -117,6 +117,9 @@ def _convert_legacy_format(spell_dict: Dict, source: str, index: int) -> SpellRe
     spell_range, range_remainder = split_polluted_field(
         "range", spell_dict.get("范围", "")
     )
+    area, area_remainder = split_polluted_field(
+        "target", spell_dict.get("区域", "")
+    )
     target, target_remainder = split_polluted_field(
         "target", spell_dict.get("目标", "")
     )
@@ -130,6 +133,7 @@ def _convert_legacy_format(spell_dict: Dict, source: str, index: int) -> SpellRe
     remainders = [
         components_remainder,
         range_remainder,
+        area_remainder,
         target_remainder,
         duration_remainder,
         save_remainder,
@@ -153,6 +157,7 @@ def _convert_legacy_format(spell_dict: Dict, source: str, index: int) -> SpellRe
         cast_time=clean_text(cast_time),
         components=clean_text(components),
         range=clean_text(spell_range),
+        area=clean_text(area),
         target=clean_text(target),
         duration=clean_text(duration),
         save=clean_text(save),
@@ -201,6 +206,11 @@ def _convert_model_format(spell_dict: Dict, source: str, index: int) -> SpellRec
     spell_range, range_remainder = split_polluted_field(
         "range", spell_dict.get("range", "")
     )
+    raw_fields = spell_dict.get("raw_fields") or {}
+    area_raw = spell_dict.get("area", "").strip()
+    if not area_raw and isinstance(raw_fields, dict):
+        area_raw = raw_fields.get("区域", "").strip()
+    area, area_remainder = split_polluted_field("target", area_raw)
     target, target_remainder = split_polluted_field(
         "target", spell_dict.get("target", "")
     )
@@ -212,6 +222,7 @@ def _convert_model_format(spell_dict: Dict, source: str, index: int) -> SpellRec
     for remainder in [
         components_remainder,
         range_remainder,
+        area_remainder,
         target_remainder,
         duration_remainder,
         save_remainder,
@@ -237,6 +248,7 @@ def _convert_model_format(spell_dict: Dict, source: str, index: int) -> SpellRec
         cast_time=clean_text(cast_time),
         components=clean_text(components),
         range=clean_text(spell_range),
+        area=clean_text(area),
         target=clean_text(target),
         duration=clean_text(duration),
         save=clean_text(save),

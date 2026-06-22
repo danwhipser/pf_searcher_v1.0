@@ -22,6 +22,7 @@ class SpellRecord(BaseModel):
     cast_time: str = Field(default="", description="施法时间")
     components: str = Field(default="", description="成分")
     range: str = Field(default="", description="范围")
+    area: str = Field(default="", description="区域")
     target: str = Field(default="", description="目标")
     duration: str = Field(default="", description="持续时间")
     save: str = Field(default="", description="豁免")
@@ -43,6 +44,7 @@ class SpellRecord(BaseModel):
                 "cast_time": "标准动作",
                 "components": "语言, 姿势, 材料",
                 "range": "远距",
+                "area": "20尺半径扩散",
                 "target": "",
                 "duration": "立即",
                 "save": "反射，通过则减半",

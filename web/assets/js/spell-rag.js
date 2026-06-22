@@ -20,8 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let spellsLoadingPromise = null;
     const professionIndex = {};
     const professionNames = {};
+    const schoolIndex = {};
+    const schoolNames = {};
     let selectedProfession = null;
     let currentProfessionGroup = null;
+    let selectedSchool = null;
+    let currentSchoolGroup = null;
     let selectedLevel = null;
     const professionLevelByKey = {};
     let ragServiceOnline = false;
@@ -575,6 +579,7 @@ document.addEventListener('DOMContentLoaded', () => {
         );
         const components = splitPollutedField('components', pickSpellField(normalizedSpell, ['成分', 'components']) || '');
         const spellRange = splitPollutedField('range', pickSpellField(normalizedSpell, ['范围', 'range']) || '');
+        const area = splitPollutedField('target', pickSpellField(normalizedSpell, ['区域', 'area']) || '');
         const target = splitPollutedField('target', pickSpellField(normalizedSpell, ['目标', 'target']) || '');
         const duration = splitPollutedField('duration', pickSpellField(normalizedSpell, ['持续', 'duration']) || '');
         const save = splitPollutedField('save', pickSpellField(normalizedSpell, ['豁免', 'save']) || '');
@@ -588,6 +593,7 @@ document.addEventListener('DOMContentLoaded', () => {
             level.remainder,
             components.remainder,
             spellRange.remainder,
+            area.remainder,
             target.remainder,
             duration.remainder,
             save.remainder,
@@ -601,6 +607,7 @@ document.addEventListener('DOMContentLoaded', () => {
             施法时间: pickSpellField(normalizedSpell, ['施法时间', 'cast_time']) || '',
             成分: components.value,
             范围: spellRange.value,
+            区域: area.value,
             目标: target.value,
             持续: duration.value,
             豁免: save.value,
@@ -658,7 +665,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '游侠': '游侠',
         '盗贼': '盗贼',
         '导师': '导师',
-        '巫师': '巫师',
+        '巫师': '法师',
         '红螳螂杀手': '红螳螂杀手',
     };
 
@@ -724,6 +731,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const isKnownProfession = (name) => KNOWN_PROFESSIONS.has(canonicalizeProfession(name));
 
+    const SCHOOL_CANON = {
+        '防护': '防护',
+        '防护系': '防护',
+        '咒法': '咒法',
+        '咒法系': '咒法',
+        '召唤': '咒法',
+        '预言': '预言',
+        '预言系': '预言',
+        '惑控': '惑控',
+        '惑控系': '惑控',
+        '附魔': '惑控',
+        '塑能': '塑能',
+        '塑能系': '塑能',
+        '幻术': '幻术',
+        '幻术系': '幻术',
+        '死灵': '死灵',
+        '死灵系': '死灵',
+        '变化': '变化',
+        '变化系': '变化',
+        '变形': '变化',
+        '通用': '通用',
+        '通用系': '通用',
+        '神话': '神话法术',
+        '神话法术': '神话法术',
+    };
+
+    const SCHOOL_ORDER = ['防护', '咒法', '预言', '惑控', '塑能', '幻术', '死灵', '变化', '神话法术', '通用', '其他'];
+
+    const isMythicSpell = (spell) => {
+        const spellType = String(spell.法术类型 || spell.spell_type || '').toLowerCase();
+        const typeLabel = String(spell.类型 || spell.type_label || '');
+        const source = String(spell.来源 || spell.source_book || '').toUpperCase();
+        return spellType === 'mythic' || source === 'MA' || typeLabel.includes('神话');
+    };
+
+    const canonicalizeSchool = (schoolText) => {
+        const raw = String(schoolText || '').replace(/\[[^\]]*]/g, '').replace(/【[^】]*】/g, '').trim();
+        if (!raw) return '其他';
+        const directMatch = ['防护', '咒法', '预言', '惑控', '附魔', '塑能', '幻术', '死灵', '变化', '变形', '神话法术', '神话', '通用']
+            .find(name => raw.includes(name));
+        if (directMatch) {
+            return SCHOOL_CANON[directMatch] || directMatch;
+        }
+        const first = raw.split(/[，,；;\s]/).filter(Boolean)[0] || raw;
+        const normalized = first.replace(/（.*?）|\(.*?\)/g, '').trim();
+        return SCHOOL_CANON[normalized] || SCHOOL_CANON[normalized.replace(/系$/, '')] || normalized.replace(/系$/, '') || '其他';
+    };
+
     const buildProfessionIndex = (spells) => {
         Object.keys(professionIndex).forEach(k => delete professionIndex[k]);
         Object.keys(professionNames).forEach(k => delete professionNames[k]);
@@ -756,6 +811,28 @@ document.addEventListener('DOMContentLoaded', () => {
                     pushEntry(cls, num, spell);
                 });
             }
+        });
+    };
+
+    const buildSchoolIndex = (spells) => {
+        Object.keys(schoolIndex).forEach(k => delete schoolIndex[k]);
+        Object.keys(schoolNames).forEach(k => delete schoolNames[k]);
+
+        spells.forEach(spell => {
+            const school = isMythicSpell(spell)
+                ? '神话法术'
+                : canonicalizeSchool(spell.学派 || spell.school || '');
+            const key = normalize(school);
+            if (!key) return;
+            if (!schoolIndex[key]) {
+                schoolIndex[key] = [];
+            }
+            schoolIndex[key].push(spell);
+            schoolNames[key] = schoolNames[key] || school;
+        });
+
+        Object.keys(schoolIndex).forEach(key => {
+            schoolIndex[key].sort((a, b) => getSpellSortName(a).localeCompare(getSpellSortName(b), 'zh-Hans'));
         });
     };
 
@@ -798,6 +875,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }));
     };
 
+    const dedupeSpells = (spells) => {
+        const seen = new Set();
+        return spells
+            .filter(spell => {
+                const key = spell.spell_id || `${spell.source_book || spell.来源 || ''}:${spell.name || spell.display_name || ''}`;
+                if (seen.has(key)) return false;
+                seen.add(key);
+                return true;
+            })
+            .sort((a, b) => getSpellSortName(a).localeCompare(getSpellSortName(b), 'zh-Hans'));
+    };
+
     const renderField = (label, value) => {
         if (!value) return '';
         return `<div class="spell-detail"><span class="label">${label}：</span>${value}</div>`;
@@ -812,6 +901,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ${renderField('施法时间', spell.施法时间)}
             ${renderField('成分', spell.成分)}
             ${renderField('范围', spell.范围)}
+            ${renderField('区域', spell.区域)}
+            ${renderField('目标', spell.目标)}
             ${renderField('持续', spell.持续)}
             ${renderField('豁免', spell.豁免)}
             ${renderField('等级', spell.等级)}
@@ -1065,6 +1156,10 @@ document.addEventListener('DOMContentLoaded', () => {
         renderProfessionWorkspace();
     };
 
+    const displaySchoolResults = () => {
+        renderSchoolWorkspace();
+    };
+
     const getProfessionGroup = (key) => {
         if (!key || !professionIndex[key]) {
             return null;
@@ -1083,6 +1178,127 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedLevel = professionLevelByKey[key] ?? null;
         renderProfessionWorkspace();
         refreshCountText('profession');
+    };
+
+    const getSchoolGroup = (key) => {
+        if (!key || !schoolIndex[key]) {
+            return null;
+        }
+        return {
+            key,
+            displayName: schoolNames[key] || key,
+            spells: dedupeSpells(schoolIndex[key]),
+        };
+    };
+
+    const selectSchool = (key) => {
+        if (!key) return;
+        selectedSchool = key;
+        currentSchoolGroup = getSchoolGroup(key);
+        renderSchoolWorkspace();
+        refreshCountText('school');
+    };
+
+    const renderSchoolWorkspace = () => {
+        resultsContainer.innerHTML = '';
+
+        const root = document.createElement('div');
+        root.className = 'profession-tab-workspace';
+
+        const sidebar = document.createElement('aside');
+        sidebar.className = 'profession-tab-sidebar';
+
+        const sideTitle = document.createElement('div');
+        sideTitle.className = 'profession-tab-sidebar-title';
+        sideTitle.textContent = '学派';
+        sidebar.appendChild(sideTitle);
+
+        const sideList = document.createElement('div');
+        sideList.className = 'profession-tab-sidebar-list';
+        const entries = Object.keys(schoolNames)
+            .map(key => ({ key, name: schoolNames[key], count: (schoolIndex[key] || []).length }))
+            .sort((a, b) => {
+                const ai = SCHOOL_ORDER.indexOf(a.name);
+                const bi = SCHOOL_ORDER.indexOf(b.name);
+                const ar = ai === -1 ? SCHOOL_ORDER.length : ai;
+                const br = bi === -1 ? SCHOOL_ORDER.length : bi;
+                return ar - br || a.name.localeCompare(b.name, 'zh-Hans');
+            });
+
+        entries.forEach(({ key, name, count }) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'profession-sidebar-btn';
+            btn.textContent = `${name} (${count})`;
+            btn.classList.toggle('active', selectedSchool === key);
+            btn.addEventListener('click', () => selectSchool(key));
+            sideList.appendChild(btn);
+        });
+        sidebar.appendChild(sideList);
+
+        const main = document.createElement('section');
+        main.className = 'profession-tab-main';
+        if (!currentSchoolGroup) {
+            const empty = document.createElement('div');
+            empty.className = 'profession-detail-empty';
+            empty.textContent = '请先在左侧选择一个学派。';
+            main.appendChild(empty);
+            root.appendChild(sidebar);
+            root.appendChild(main);
+            resultsContainer.appendChild(root);
+            return;
+        }
+
+        const layout = document.createElement('div');
+        layout.className = 'profession-results-layout';
+
+        const listPanel = document.createElement('div');
+        listPanel.className = 'profession-list-panel';
+
+        const detailPanel = document.createElement('div');
+        detailPanel.className = 'profession-detail-panel';
+        detailPanel.innerHTML = '<div class="profession-detail-empty">点击左侧法术查看详述。</div>';
+
+        const section = document.createElement('section');
+        section.className = 'profession-list-section';
+
+        const sectionHeader = document.createElement('div');
+        sectionHeader.className = 'profession-list-section-title';
+        sectionHeader.textContent = `${currentSchoolGroup.displayName}（${currentSchoolGroup.spells.length} 个）`;
+        section.appendChild(sectionHeader);
+
+        currentSchoolGroup.spells.forEach(spell => {
+            const row = document.createElement('button');
+            row.type = 'button';
+            row.className = 'profession-spell-row';
+
+            const name = document.createElement('span');
+            name.className = 'profession-spell-row-name';
+            name.textContent = spell.name || spell.display_name || '（未命名）';
+
+            const source = document.createElement('span');
+            source.className = 'profession-spell-row-level';
+            source.textContent = spell.来源 || spell.source_book || '';
+
+            row.appendChild(name);
+            row.appendChild(source);
+            row.addEventListener('click', () => {
+                listPanel.querySelectorAll('.profession-spell-row').forEach(node => node.classList.remove('active'));
+                row.classList.add('active');
+                detailPanel.innerHTML = '';
+                detailPanel.appendChild(renderSpellCard(spell));
+            });
+            section.appendChild(row);
+        });
+
+        listPanel.appendChild(section);
+        layout.appendChild(listPanel);
+        layout.appendChild(detailPanel);
+        main.appendChild(layout);
+
+        root.appendChild(sidebar);
+        root.appendChild(main);
+        resultsContainer.appendChild(root);
     };
 
     const renderProfessionWorkspace = () => {
@@ -1233,6 +1449,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetProfessionSelection = () => {
         selectedProfession = null;
         currentProfessionGroup = null;
+        selectedSchool = null;
+        currentSchoolGroup = null;
         selectedLevel = null;
         Object.keys(professionLevelByKey).forEach(k => delete professionLevelByKey[k]);
     };
@@ -1245,7 +1463,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mode === 'name' || mode === 'keyword') {
             const totalLoaded = resultsContainer.children.length;
             spellCountDiv.textContent = `显示 ${totalLoaded} / ${allSpells.length} 个法术`;
-        } else {
+        } else if (mode === 'profession') {
             if (!currentProfessionGroup) {
                 spellCountDiv.textContent = '请选择一个职业查看对应法术';
                 return;
@@ -1255,6 +1473,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 : dedupeProfessionEntries(currentProfessionGroup.spells).length;
             const suffix = selectedLevel !== null ? `，仅包含 ${selectedLevel} 环` : '';
             spellCountDiv.textContent = `显示 ${totalSpells} 个法术，当前职业：${currentProfessionGroup.displayName}${suffix}`;
+        } else if (mode === 'school') {
+            if (!currentSchoolGroup) {
+                spellCountDiv.textContent = '请选择一个学派查看对应法术';
+                return;
+            }
+            spellCountDiv.textContent = `显示 ${currentSchoolGroup.spells.length} 个法术，当前学派：${currentSchoolGroup.displayName}`;
         }
     };
 
@@ -1272,6 +1496,14 @@ document.addEventListener('DOMContentLoaded', () => {
             spellCountDiv.textContent = `关键词结果：${keywordLastShown} / ${keywordLastTotal}`;
             return;
         }
+        if (mode === 'school') {
+            if (!currentSchoolGroup) {
+                spellCountDiv.textContent = '请选择一个学派查看对应法术';
+                return;
+            }
+            spellCountDiv.textContent = `显示 ${currentSchoolGroup.spells.length} 个法术，当前学派：${currentSchoolGroup.displayName}`;
+            return;
+        }
         if (!currentProfessionGroup) {
             spellCountDiv.textContent = '请选择一个职业查看对应法术';
             return;
@@ -1287,6 +1519,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const mode = modeSelect.value;
         if (mode === 'profession') {
             searchInput.placeholder = '根据职业点击下方按钮';
+        } else if (mode === 'school') {
+            searchInput.placeholder = '根据学派点击左侧按钮';
         } else if (mode === 'keyword') {
             searchInput.placeholder = '输入关键词后点击搜索';
         } else if (mode === 'rag') {
@@ -1300,14 +1534,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const mode = modeSelect.value;
         const isKeyword = mode === 'keyword';
         const isProfession = mode === 'profession';
+        const isSchool = mode === 'school';
         const isRag = mode === 'rag';
 
-        nameSearchBox.classList.toggle('hidden', isProfession || isRag);
+        nameSearchBox.classList.toggle('hidden', isProfession || isSchool || isRag);
         professionSelector.classList.add('hidden');
         levelSelector.classList.add('hidden');
         ragPanel.classList.toggle('hidden', !isRag);
         resultsContainer.classList.toggle('hidden', isRag);
-        resultsContainer.classList.toggle('profession-mode', isProfession);
+        resultsContainer.classList.toggle('profession-mode', isProfession || isSchool);
         resultsContainer.classList.toggle('keyword-mode', isKeyword);
         if (!isProfession) {
             levelSelector.innerHTML = '';
@@ -1324,6 +1559,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: '输入法术名称搜索',
             keyword: '输入关键词后点击搜索，查看索引列表',
             profession: '按职业时点击职业按钮，再选环位',
+            school: '按学派时选择学派，查看该学派法术',
             rag: 'RAG 服务' + (ragServiceOnline ? '在线 ?' : '离线 ?')
         };
         if (modeHint) {
@@ -1345,6 +1581,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (mode === 'profession') {
             displayProfessionResults();
+            refreshCountText(mode);
+            return;
+        }
+        if (mode === 'school') {
+            displaySchoolResults();
             refreshCountText(mode);
             return;
         }
@@ -1387,6 +1628,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     .map(normalizeSpell)
                     .filter(Boolean);
                 buildProfessionIndex(allSpells);
+                buildSchoolIndex(allSpells);
                 renderProfessionButtons();
                 spellsLoaded = true;
             })
@@ -1468,7 +1710,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // 默认 RAG 模式：不预加载全量法术数据，降低初始内存占用
-    resultsContainer.textContent = '智能问答模式已启用。若切换到名称/职业模式，将按需加载法术数据。';
+    resultsContainer.textContent = '智能问答模式已启用。若切换到名称/职业/学派模式，将按需加载法术数据。';
 
     const debouncedRunSearch = debounce(() => {
         if (modeSelect.value === 'rag' || modeSelect.value === 'keyword') return;
@@ -1511,6 +1753,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderProfessionButtons();
                 displayProfessionResults();
                 refreshCountText('profession');
+            }).catch(() => {});
+            return;
+        }
+        if (mode === 'school') {
+            ensureSpellDataLoaded().then(() => {
+                displaySchoolResults();
+                refreshCountText('school');
             }).catch(() => {});
             return;
         }

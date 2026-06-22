@@ -191,6 +191,7 @@ class Indexer:
             f"施法时间：{spell.cast_time}",
             f"成分：{spell.components}",
             f"范围：{spell.range}",
+            f"区域：{spell.area}",
             f"目标：{spell.target}",
             f"持续：{spell.duration}",
             f"豁免：{spell.save}",

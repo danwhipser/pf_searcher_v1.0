@@ -1,4 +1,4 @@
-# PFSpellRAG v1.1
+﻿# PFSpellRAG v1.1
 
 Pathfinder（PF）法术检索与智能问答系统。  
 当前版本是 `FastAPI + 前端静态页面 + BM25/向量混合检索 + LLM 生成` 的完整运行形态。
@@ -36,7 +36,7 @@ EMBEDDING_MODEL=BAAI/bge-large-zh-v1.5
 ### 2.3 构建索引（首次或数据更新后建议执行）
 
 ```bash
-python scripts/build_index.py
+python scripts/build/build_index.py
 ```
 
 ### 2.4 启动服务
@@ -78,10 +78,11 @@ python run_web.py
 ### 3.3 前端（`web/`）
 
 - `index.html`：页面结构（模式切换、筛选、结果区）
-- `script.js`：前端核心逻辑
+- `assets/js/spell-rag.js`：法术检索与 RAG 前端核心逻辑
   - 名称搜索 / 关键词搜索 / 职业搜索 / RAG 提问
   - API 调用与结果渲染（含 Markdown 表格渲染）
-- `style.css`：页面样式
+- `assets/css/spells.css`：法术页面样式
+- `assets/css/browser.css`：专长/职业/奇物浏览页面通用样式
 
 ### 3.4 数据与索引
 
@@ -92,14 +93,15 @@ python run_web.py
 
 ### 3.5 脚本与评估（`scripts/`, `eval/`）
 
-- `scripts/build_index.py`：离线构建索引入口
-- `scripts/evaluate.py`：评估脚本（Retrieval@5、MRR、答案命中等）
+- `scripts/build/build_index.py`：离线构建索引入口
+- `scripts/build/evaluate.py`：评估脚本（Retrieval@5、MRR、答案命中等）
 - `eval/gold_set.json`：评估题集
 - `scripts/extract_*.py` 等：数据抽取/清洗相关工具脚本（非日常运行必需）
 
 ### 3.6 打包与分发
 
-- `PFSpellRAG.spec`：PyInstaller 打包配置
+- `packaging/legacy/PFSpellRAG.spec`：历史 PyInstaller 打包配置
+- `scripts/package/package_lite.py`：精简分发版打包脚本
 - `dist/PFSpellRAG_portable_V1.1.zip`：可分发便携包
 - `dist/PFSpellRAG_portable_V1.1/`：便携运行目录（`exe + web + result + data`）
 
@@ -113,7 +115,7 @@ python run_web.py
 
 ## 5. 常见维护操作
 
-- 更新 `result/` 数据后：重新执行 `python scripts/build_index.py`
+- 更新 `result/` 数据后：重新执行 `python scripts/build/build_index.py`
 - 更换模型/API：修改 `.env` 中 LLM 与 Embedding 相关变量
 - 验证服务：访问 `/api/health`
 

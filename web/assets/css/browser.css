@@ -37,6 +37,15 @@ body {
   margin-top: 16px;
   display: inline-flex;
   gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tab-label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 0 2px 0 8px;
 }
 
 .tab {

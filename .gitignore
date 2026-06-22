@@ -14,7 +14,8 @@ venv/
 *.log
 
 # Non-runtime local/assets
-97a39795-ae5e-4cf6-8658-fae119753303.png
+assets/raw/
+assets/misc/
 *.spec
 eval/
 
@@ -32,21 +33,17 @@ data/player_companion_aon_supplements.json
 # Raw CHM/source dumps and extractor-only inputs
 *.chm
 *.chw
-spell/
-_chm_decompiled/
-_chm_extract/
 
-# CHM extraction and backfill tooling is not part of the runtime GitHub build
-convert_chm_to_html_viewer.py
-export_spell_html.py
-export_spell_index.py
-export_spell_markdown.py
-scripts/*
-!scripts/configure_api_keys.py
+# Scratch scripts are not stable entry points
+scripts/_scratch/*
+!scripts/_scratch/README.md
 
 # Keep only runtime-facing docs in the GitHub build
 docs/*
 !docs/API_KEY_CONFIGURATION.md
+!docs/CHARACTER_SCHEMA_ZH.md
+!docs/CODE_OVERVIEW_ZH.md
+!docs/README_RAG.md
 
 # Generated viewer bundle; exceeds GitHub's regular file size limit
 result/Pathfinder-v2.14-SC-viewer.html

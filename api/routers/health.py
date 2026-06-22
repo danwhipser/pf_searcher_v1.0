@@ -4,6 +4,7 @@ from fastapi import APIRouter
 
 from api.dependencies import get_index_status, get_retriever
 from api.models import HealthResponse
+from pf_rag.version import APP_VERSION
 
 
 router = APIRouter(prefix="/api", tags=["health"])
@@ -16,15 +17,14 @@ async def health():
         spell_count, index_built_at = get_index_status()
         return HealthResponse(
             status="ok",
-            version="1.0.0",
+            version=APP_VERSION,
             spell_count=spell_count,
             index_built_at=index_built_at,
         )
     except Exception:
         return HealthResponse(
             status="error",
-            version="1.0.0",
+            version=APP_VERSION,
             spell_count=0,
             index_built_at=None,
         )
-

@@ -1,13 +1,16 @@
-﻿# PFSpellRAG v1.1
+﻿# PFSpellRAG v1.2
 
 Pathfinder（PF）法术检索与智能问答系统。  
-当前版本是 `FastAPI + 前端静态页面 + BM25/向量混合检索 + LLM 生成` 的完整运行形态。
+当前版本同时包含完整 RAG 运行形态和精简资料浏览/车卡器运行形态。
 
 ## 1. 项目能做什么
 
 - 按法术名称检索
 - 按关键词检索（全字段）
 - 按职业/环位筛选法术
+- 按学派筛选法术，并将神话法术作为独立分类
+- 浏览专长、职业、奇物资料
+- 使用车卡器记录本地角色卡草稿，并从资料库加入职业、专长、法术、奇物
 - 智能问答（RAG）：先检索再生成，返回带引用的回答
 - LLM 不可用时自动降级为“仅检索候选结果”
 
@@ -39,7 +42,7 @@ EMBEDDING_MODEL=BAAI/bge-large-zh-v1.5
 python scripts/build/build_index.py
 ```
 
-### 2.4 启动服务
+### 2.4 启动完整 RAG 服务
 
 ```bash
 python run_web.py
@@ -49,6 +52,14 @@ python run_web.py
 
 - 前端：`http://localhost:8000/web/`
 - API 文档：`http://localhost:8000/docs`
+
+### 2.5 启动精简版
+
+```bash
+python run_lite.py
+```
+
+精简版只保留前端展示、资料查询和车卡器，不加载 RAG、向量索引和 LLM 相关依赖。
 
 ## 3. 目录与各部分作用
 
@@ -102,8 +113,9 @@ python run_web.py
 
 - `packaging/legacy/PFSpellRAG.spec`：历史 PyInstaller 打包配置
 - `scripts/package/package_lite.py`：精简分发版打包脚本
-- `dist/PFSpellRAG_portable_V1.1.zip`：可分发便携包
-- `dist/PFSpellRAG_portable_V1.1/`：便携运行目录（`exe + web + result + data`）
+- `dist/PFSearcher_v1.2_portable.zip`：完整版本可分发便携包
+- `dist/PFSearcherLite_v1.2_portable.zip`：精简版本可分发便携包
+- `dist/PFSearcher_v1.2_portable/`、`dist/PFSearcherLite_v1.2_portable/`：便携运行目录（`exe + web + result + data`）
 
 ## 4. 核心流程（简化）
 
@@ -124,3 +136,7 @@ python run_web.py
 - 首次加载或首次构建索引耗时会较长（模型加载/向量化）
 - 未配置 `LLM_API_KEY` 时，问答接口会进入降级模式（仍可检索）
 - `build/`、`dist/`、`__pycache__/` 属于构建产物，不是核心源码
+
+## 7. 更新说明
+
+完整更新记录见 `CHANGELOG.md`。当前版本为 `v1.2`。

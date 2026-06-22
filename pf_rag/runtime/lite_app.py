@@ -6,6 +6,7 @@ from fastapi.staticfiles import StaticFiles
 
 from pf_rag.runtime.paths import RuntimePaths
 from pf_rag.runtime.spell_catalog import SpellCatalog
+from pf_rag.version import APP_VERSION
 
 
 def create_lite_app(paths: RuntimePaths) -> FastAPI:
@@ -13,14 +14,14 @@ def create_lite_app(paths: RuntimePaths) -> FastAPI:
     app = FastAPI(
         title="PF Searcher Lite API",
         description="Local PF data browser without RAG/indexing dependencies.",
-        version="1.0.0-lite",
+        version=APP_VERSION,
     )
 
     @app.get("/api/health")
     async def health():
         return {
             "status": "lite",
-            "version": "1.0.0-lite",
+            "version": APP_VERSION,
             "spell_count": catalog.spell_count(),
             "index_built_at": None,
         }
@@ -42,4 +43,3 @@ def create_lite_app(paths: RuntimePaths) -> FastAPI:
         app.mount("/result", StaticFiles(directory=str(paths.result_dir)), name="result")
 
     return app
-

@@ -11,13 +11,15 @@ if str(_PROJECT_ROOT) not in sys.path:
 import shutil
 import subprocess
 
+from pf_rag.version import APP_VERSION
+
 
 ROOT = Path(__file__).resolve().parents[2]
 DIST_DIR = ROOT / "dist"
 APP_NAME = "PFSearcher"
 BUILD_OUTPUT_DIR = DIST_DIR / APP_NAME
-PORTABLE_DIR = DIST_DIR / f"{APP_NAME}_portable"
-ZIP_BASENAME = DIST_DIR / f"{APP_NAME}_portable"
+PORTABLE_DIR = DIST_DIR / f"{APP_NAME}_v{APP_VERSION}_portable"
+ZIP_BASENAME = DIST_DIR / f"{APP_NAME}_v{APP_VERSION}_portable"
 COLLECT_ALL_PACKAGES = [
     "chromadb",
     "onnxruntime",

@@ -1,5 +1,6 @@
 (() => {
   const STORAGE_KEY = "pf_character_workbench_v1";
+  const APP_VERSION = "1.2";
   const SCHEMA_VERSION = "0.1.0";
   const ABILITIES = [
     ["str", "力量"],
@@ -103,7 +104,7 @@
       meta: {
         id: `character-${Date.now()}`,
         schema_version: SCHEMA_VERSION,
-        app_version: "1.0.0-lite",
+        app_version: APP_VERSION,
         ruleset: "PF1e",
         enabled_sources: ["CRB"],
         created_at: new Date().toISOString(),

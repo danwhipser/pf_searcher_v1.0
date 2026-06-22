@@ -9,6 +9,7 @@ import uvicorn
 from pf_rag.runtime.lite_app import create_lite_app
 from pf_rag.runtime.paths import RuntimePaths
 from pf_rag.runtime.server import find_free_port, open_browser
+from pf_rag.version import APP_VERSION
 
 
 PATHS = RuntimePaths.from_entry_file(__file__)
@@ -21,7 +22,7 @@ def main() -> None:
     url = f"http://localhost:{port}/web/"
 
     print("=" * 60)
-    print("PF Searcher Lite")
+    print(f"PF Searcher Lite v{APP_VERSION}")
     print("=" * 60)
     print(f"Local app: {url}")
     print(f"API docs:  http://localhost:{port}/docs")
@@ -34,4 +35,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

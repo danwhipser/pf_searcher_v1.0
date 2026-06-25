@@ -2764,7 +2764,7 @@
     "spell_id": "uw-0053",
     "name": "绿翼馈赠（Wing Bounty）",
     "source_book": "uw",
-    "school": "conjuration",
+    "school": "咒法系",
     "level_raw": "druid 2, hunter 2, shaman 2 (Gathlain)",
     "level_by_class": [
       {
@@ -2792,7 +2792,7 @@
     "raw_fields": {
       "name": "绿翼馈赠（Wing Bounty）",
       "source_book": "uw",
-      "学派": "conjuration",
+      "学派": "咒法系",
       "等级": "druid 2, hunter 2, shaman 2 (Gathlain)",
       "施法时间": "1 standard action",
       "成分": "V, S, DF",

@@ -54,7 +54,7 @@
     "spell_id": "col-0002",
     "name": "Rival's Weald",
     "source_book": "col",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "druid 9, shaman 9, witch 9",
     "level_by_class": [
       {
@@ -82,7 +82,7 @@
     "raw_fields": {
       "name": "Rival's Weald",
       "source_book": "col",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "druid 9, shaman 9, witch 9",
       "施法时间": "1 standard action",
       "成分": "V, S, M (a hardened piece of tree sap)",
@@ -106,7 +106,7 @@
     "spell_id": "col-0003",
     "name": "Song of Discord, Greater",
     "source_book": "col",
-    "school": "enchantment",
+    "school": "惑控系",
     "level_raw": "bard 6, mesmerist 6, psychic 8, skald 6",
     "level_by_class": [
       {
@@ -138,7 +138,7 @@
     "raw_fields": {
       "name": "Song of Discord, Greater",
       "source_book": "col",
-      "学派": "enchantment",
+      "学派": "惑控系",
       "等级": "bard 6, mesmerist 6, psychic 8, skald 6",
       "施法时间": "1 standard action",
       "成分": "V, S",
@@ -162,7 +162,7 @@
     "spell_id": "col-0004",
     "name": "Uncanny Reminder",
     "source_book": "col",
-    "school": "conjuration",
+    "school": "咒法系",
     "level_raw": "arcanist 8, mesmerist 6, psychic 8, sorcerer 8, summoner 6, summoner (unchained) 6, wizard 8",
     "level_by_class": [
       {
@@ -206,7 +206,7 @@
     "raw_fields": {
       "name": "Uncanny Reminder",
       "source_book": "col",
-      "学派": "conjuration",
+      "学派": "咒法系",
       "等级": "arcanist 8, mesmerist 6, psychic 8, sorcerer 8, summoner 6, summoner (unchained) 6, wizard 8",
       "施法时间": "1 round",
       "成分": "V, S",

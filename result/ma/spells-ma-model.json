@@ -476,7 +476,7 @@
     "spell_id": "ma-0016",
     "name": "野兽形态I（Beast Shape I）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "alchemist 3, arcanist 3, bloodrager 3, investigator 3, magus 3, redmantisassassin 3, sorcerer 3, wizard 3",
     "level_by_class": [
       {
@@ -524,7 +524,7 @@
     "raw_fields": {
       "name": "野兽形态I（Beast Shape I）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "alchemist 3, arcanist 3, bloodrager 3, investigator 3, magus 3, redmantisassassin 3, sorcerer 3, wizard 3",
       "施法时间": "1 standard action",
       "成分": "V, S, M (a piece of the creature whose form you plan to assume)",
@@ -545,7 +545,7 @@
     "spell_id": "ma-0017",
     "name": "野兽形态II（Beast Shape II）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "alchemist 4, arcanist 4, bloodrager 4, investigator 4, magus 4, redmantisassassin 4, sorcerer 4, wizard 4",
     "level_by_class": [
       {
@@ -593,7 +593,7 @@
     "raw_fields": {
       "name": "野兽形态II（Beast Shape II）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "alchemist 4, arcanist 4, bloodrager 4, investigator 4, magus 4, redmantisassassin 4, sorcerer 4, wizard 4",
       "施法时间": "1 standard action",
       "成分": "V, S, M (a piece of the creature whose form you plan to assume)",
@@ -614,7 +614,7 @@
     "spell_id": "ma-0018",
     "name": "野兽形态III（Beast Shape III）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "alchemist 5, arcanist 5, investigator 5, magus 5, sorcerer 5, wizard 5",
     "level_by_class": [
       {
@@ -654,7 +654,7 @@
     "raw_fields": {
       "name": "野兽形态III（Beast Shape III）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "alchemist 5, arcanist 5, investigator 5, magus 5, sorcerer 5, wizard 5",
       "施法时间": "1 standard action",
       "成分": "V, S, M (a piece of the creature whose form you plan to assume)",
@@ -675,7 +675,7 @@
     "spell_id": "ma-0019",
     "name": "野兽形态IV（Beast Shape IV）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "alchemist 6, arcanist 6, investigator 6, magus 6, sorcerer 6, wizard 6",
     "level_by_class": [
       {
@@ -715,7 +715,7 @@
     "raw_fields": {
       "name": "野兽形态IV（Beast Shape IV）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "alchemist 6, arcanist 6, investigator 6, magus 6, sorcerer 6, wizard 6",
       "施法时间": "1 standard action",
       "成分": "V, S, M (a piece of the creature whose form you plan to assume)",
@@ -2863,7 +2863,7 @@
     "spell_id": "ma-0090",
     "name": "元素形态I（Elemental Body I）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "alchemist 4, arcanist 4, bloodrager 4, investigator 4, magus 4, redmantisassassin 4, sorcerer 4, wizard 4",
     "level_by_class": [
       {
@@ -2911,7 +2911,7 @@
     "raw_fields": {
       "name": "元素形态I（Elemental Body I）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "alchemist 4, arcanist 4, bloodrager 4, investigator 4, magus 4, redmantisassassin 4, sorcerer 4, wizard 4",
       "施法时间": "1 standard action",
       "成分": "V, S, M (the element you plan to assume)",
@@ -2932,7 +2932,7 @@
     "spell_id": "ma-0091",
     "name": "元素形态II（Elemental Body II）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "alchemist 5, arcanist 5, investigator 5, magus 5, sorcerer 5, wizard 5",
     "level_by_class": [
       {
@@ -2972,7 +2972,7 @@
     "raw_fields": {
       "name": "元素形态II（Elemental Body II）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "alchemist 5, arcanist 5, investigator 5, magus 5, sorcerer 5, wizard 5",
       "施法时间": "1 standard action",
       "成分": "V, S, M (the element you plan to assume)",
@@ -2993,7 +2993,7 @@
     "spell_id": "ma-0092",
     "name": "元素形态III（Elemental Body III）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "alchemist 6, arcanist 6, investigator 6, magus 6, sorcerer 6, wizard 6",
     "level_by_class": [
       {
@@ -3033,7 +3033,7 @@
     "raw_fields": {
       "name": "元素形态III（Elemental Body III）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "alchemist 6, arcanist 6, investigator 6, magus 6, sorcerer 6, wizard 6",
       "施法时间": "1 standard action",
       "成分": "V, S, M (the element you plan to assume)",
@@ -3054,7 +3054,7 @@
     "spell_id": "ma-0093",
     "name": "元素形态IV（Elemental Body IV）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "arcanist 7, sorcerer 7, wizard 7",
     "level_by_class": [
       {
@@ -3082,7 +3082,7 @@
     "raw_fields": {
       "name": "元素形态IV（Elemental Body IV）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "arcanist 7, sorcerer 7, wizard 7",
       "施法时间": "1 standard action",
       "成分": "V, S, M (the element you plan to assume)",
@@ -3913,7 +3913,7 @@
     "spell_id": "ma-0121",
     "name": "巨龙形态I（Form of the Dragon I）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "alchemist 6, arcanist 6, investigator 6, magus 6, sorcerer 6, wizard 6",
     "level_by_class": [
       {
@@ -3953,7 +3953,7 @@
     "raw_fields": {
       "name": "巨龙形态I（Form of the Dragon I）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "alchemist 6, arcanist 6, investigator 6, magus 6, sorcerer 6, wizard 6",
       "施法时间": "1 standard action",
       "成分": "V, S, M (a scale of the dragon type you plan to assume)",
@@ -3974,7 +3974,7 @@
     "spell_id": "ma-0122",
     "name": "巨龙形态II（Form of the Dragon II）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "arcanist 7, sorcerer 7, wizard 7",
     "level_by_class": [
       {
@@ -4002,7 +4002,7 @@
     "raw_fields": {
       "name": "巨龙形态II（Form of the Dragon II）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "arcanist 7, sorcerer 7, wizard 7",
       "施法时间": "1 standard action",
       "成分": "V, S, M (a scale of the dragon type you plan to assume)",
@@ -4023,7 +4023,7 @@
     "spell_id": "ma-0123",
     "name": "巨龙形态III（Form of the Dragon III）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "arcanist 8, sorcerer 8, wizard 8",
     "level_by_class": [
       {
@@ -4051,7 +4051,7 @@
     "raw_fields": {
       "name": "巨龙形态III（Form of the Dragon III）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "arcanist 8, sorcerer 8, wizard 8",
       "施法时间": "1 standard action",
       "成分": "V, S, M (a scale of the dragon type you plan to assume)",
@@ -5602,7 +5602,7 @@
     "spell_id": "ma-0175",
     "name": "类人形态I（Monstrous Physique I）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "alchemist 3, arcanist 3, bloodrager 3, investigator 3, magus 3, redmantisassassin 3, sorcerer 3, wizard 3",
     "level_by_class": [
       {
@@ -5650,7 +5650,7 @@
     "raw_fields": {
       "name": "类人形态I（Monstrous Physique I）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "alchemist 3, arcanist 3, bloodrager 3, investigator 3, magus 3, redmantisassassin 3, sorcerer 3, wizard 3",
       "施法时间": "1 standard action",
       "成分": "V, S, M (a piece of the creature whose form you plan to assume)",
@@ -5671,7 +5671,7 @@
     "spell_id": "ma-0176",
     "name": "类人形态II（Monstrous Physique II）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "alchemist 4, arcanist 4, bloodrager 4, investigator 4, magus 4, redmantisassassin 4, sorcerer 4, wizard 4",
     "level_by_class": [
       {
@@ -5719,7 +5719,7 @@
     "raw_fields": {
       "name": "类人形态II（Monstrous Physique II）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "alchemist 4, arcanist 4, bloodrager 4, investigator 4, magus 4, redmantisassassin 4, sorcerer 4, wizard 4",
       "施法时间": "1 standard action",
       "成分": "V, S, M (a piece of the creature whose form you plan to assume)",
@@ -5740,7 +5740,7 @@
     "spell_id": "ma-0177",
     "name": "类人形态III（Monstrous Physique III）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "alchemist 5, arcanist 5, investigator 5, magus 5, sorcerer 5, wizard 5",
     "level_by_class": [
       {
@@ -5780,7 +5780,7 @@
     "raw_fields": {
       "name": "类人形态III（Monstrous Physique III）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "alchemist 5, arcanist 5, investigator 5, magus 5, sorcerer 5, wizard 5",
       "施法时间": "1 standard action",
       "成分": "V, S, M (a piece of the creature whose form you plan to assume)",
@@ -5801,7 +5801,7 @@
     "spell_id": "ma-0178",
     "name": "类人形态IV（Monstrous Physique IV）",
     "source_book": "ma",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "alchemist 6, arcanist 6, investigator 6, magus 6, sorcerer 6, wizard 6",
     "level_by_class": [
       {
@@ -5841,7 +5841,7 @@
     "raw_fields": {
       "name": "类人形态IV（Monstrous Physique IV）",
       "source_book": "ma",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "alchemist 6, arcanist 6, investigator 6, magus 6, sorcerer 6, wizard 6",
       "施法时间": "1 standard action",
       "成分": "V, S, M (a piece of the creature whose form you plan to assume)",

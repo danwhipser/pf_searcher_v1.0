@@ -56,7 +56,7 @@
     "spell_id": "mo-0002",
     "name": "Elemental Bombardment",
     "source_book": "mo",
-    "school": "conjuration",
+    "school": "咒法系",
     "level_raw": "arcanist 7, druid 7, sorcerer 7, wizard 7",
     "level_by_class": [
       {
@@ -88,7 +88,7 @@
     "raw_fields": {
       "name": "Elemental Bombardment",
       "source_book": "mo",
-      "学派": "conjuration",
+      "学派": "咒法系",
       "等级": "arcanist 7, druid 7, sorcerer 7, wizard 7",
       "施法时间": "1 round",
       "成分": "V, S",
@@ -112,7 +112,7 @@
     "spell_id": "mo-0003",
     "name": "Imbue with Flight",
     "source_book": "mo",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "arcanist 4, redmantisassassin 4, sorcerer 4, wizard 4",
     "level_by_class": [
       {
@@ -144,7 +144,7 @@
     "raw_fields": {
       "name": "Imbue with Flight",
       "source_book": "mo",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "arcanist 4, redmantisassassin 4, sorcerer 4, wizard 4",
       "施法时间": "1 standard action",
       "成分": "V, M (handful of down)",
@@ -168,7 +168,7 @@
     "spell_id": "mo-0004",
     "name": "Soulreaver",
     "source_book": "mo",
-    "school": "necromancy",
+    "school": "死灵系",
     "level_raw": "arcanist 8, cleric 8, oracle 8, sorcerer 8, witch 8, wizard 8",
     "level_by_class": [
       {
@@ -208,7 +208,7 @@
     "raw_fields": {
       "name": "Soulreaver",
       "source_book": "mo",
-      "学派": "necromancy",
+      "学派": "死灵系",
       "等级": "arcanist 8, cleric 8, oracle 8, sorcerer 8, witch 8, wizard 8",
       "施法时间": "1 standard action",
       "成分": "V, S",
@@ -232,7 +232,7 @@
     "spell_id": "mo-0005",
     "name": "Sustaining Legend",
     "source_book": "mo",
-    "school": "conjuration",
+    "school": "咒法系",
     "level_raw": "bard 5, cleric 6, oracle 6, skald 5, warpriest 6",
     "level_by_class": [
       {
@@ -268,7 +268,7 @@
     "raw_fields": {
       "name": "Sustaining Legend",
       "source_book": "mo",
-      "学派": "conjuration",
+      "学派": "咒法系",
       "等级": "bard 5, cleric 6, oracle 6, skald 5, warpriest 6",
       "施法时间": "1 standard action",
       "成分": "V, S",

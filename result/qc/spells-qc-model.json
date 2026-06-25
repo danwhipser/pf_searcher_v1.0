@@ -370,7 +370,7 @@
     "spell_id": "qc-0009",
     "name": "Ceremony",
     "source_book": "qc",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "cleric 1, oracle 1, warpriest 1",
     "level_by_class": [
       {
@@ -398,7 +398,7 @@
     "raw_fields": {
       "name": "Ceremony",
       "source_book": "qc",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "cleric 1, oracle 1, warpriest 1",
       "施法时间": "8 hours",
       "成分": "V, S, DF",

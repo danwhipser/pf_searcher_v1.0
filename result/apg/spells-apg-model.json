@@ -5506,7 +5506,7 @@
     "spell_id": "apg-0127",
     "name": "鸿运当头（Heroic Fortune）",
     "source_book": "apg",
-    "school": "evocation",
+    "school": "塑能系",
     "level_raw": "alchemist 2, bard 2, cleric 2, investigator 2, oracle 2, paladin 3, skald 2, warpriest 2",
     "level_by_class": [
       {
@@ -5554,7 +5554,7 @@
     "raw_fields": {
       "name": "鸿运当头（Heroic Fortune）",
       "source_book": "apg",
-      "学派": "evocation",
+      "学派": "塑能系",
       "等级": "alchemist 2, bard 2, cleric 2, investigator 2, oracle 2, paladin 3, skald 2, warpriest 2",
       "施法时间": "1 standard action",
       "成分": "V, S, DF, M (diamond dust worth 100 gp)",
@@ -5575,7 +5575,7 @@
     "spell_id": "apg-0128",
     "name": "天降洪福（Heroic Fortune, Mass）",
     "source_book": "apg",
-    "school": "evocation",
+    "school": "塑能系",
     "level_raw": "bard 4, cleric 5, oracle 5, skald 4, warpriest 5",
     "level_by_class": [
       {
@@ -5611,7 +5611,7 @@
     "raw_fields": {
       "name": "天降洪福（Heroic Fortune, Mass）",
       "source_book": "apg",
-      "学派": "evocation",
+      "学派": "塑能系",
       "等级": "bard 4, cleric 5, oracle 5, skald 4, warpriest 5",
       "施法时间": "1 standard action",
       "成分": "V, S, DF, M (diamond dust worth 1,000 gp)",
@@ -6700,7 +6700,7 @@
     "spell_id": "apg-0154",
     "name": "恶意中伤（Malediction (Hero Points)）",
     "source_book": "apg",
-    "school": "necromancy",
+    "school": "死灵系",
     "level_raw": "arcanist 3, sorcerer 3, witch 3, wizard 3",
     "level_by_class": [
       {
@@ -6732,7 +6732,7 @@
     "raw_fields": {
       "name": "恶意中伤（Malediction (Hero Points)）",
       "source_book": "apg",
-      "学派": "necromancy",
+      "学派": "死灵系",
       "等级": "arcanist 3, sorcerer 3, witch 3, wizard 3",
       "施法时间": "1 standard action",
       "成分": "V, S, F (onyx dust worth 500 gp)",
@@ -7575,7 +7575,7 @@
     "spell_id": "apg-0174",
     "name": "群体位面适应（Planar Adaptation, Mass）",
     "source_book": "apg",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "arcanist 7, cleric 6, occultist 6, oracle 6, psychic 6, sorcerer 7, summoner 6, summoner (unchained) 6, warpriest 6, wizard 7",
     "level_by_class": [
       {
@@ -7631,7 +7631,7 @@
     "raw_fields": {
       "name": "群体位面适应（Planar Adaptation, Mass）",
       "source_book": "apg",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "arcanist 7, cleric 6, occultist 6, oracle 6, psychic 6, sorcerer 7, summoner 6, summoner (unchained) 6, warpriest 6, wizard 7",
       "施法时间": "1 standard action",
       "成分": "V, S",
@@ -8919,7 +8919,7 @@
     "spell_id": "apg-0205",
     "name": "听天由命（Severed Fate）",
     "source_book": "apg",
-    "school": "enchantment",
+    "school": "惑控系",
     "level_raw": "cleric 3, oracle 3, warpriest 3, witch 2",
     "level_by_class": [
       {
@@ -8951,7 +8951,7 @@
     "raw_fields": {
       "name": "听天由命（Severed Fate）",
       "source_book": "apg",
-      "学派": "enchantment",
+      "学派": "惑控系",
       "等级": "cleric 3, oracle 3, warpriest 3, witch 2",
       "施法时间": "1 standard action",
       "成分": "V, S",
@@ -10858,7 +10858,7 @@
     "spell_id": "apg-0249",
     "name": "天煞孤星（Unravel Destiny）",
     "source_book": "apg",
-    "school": "divination",
+    "school": "预言系",
     "level_raw": "arcanist 3, cleric 3, oracle 3, sorcerer 3, warpriest 3, witch 3, wizard 3",
     "level_by_class": [
       {
@@ -10902,7 +10902,7 @@
     "raw_fields": {
       "name": "天煞孤星（Unravel Destiny）",
       "source_book": "apg",
-      "学派": "divination",
+      "学派": "预言系",
       "等级": "arcanist 3, cleric 3, oracle 3, sorcerer 3, warpriest 3, witch 3, wizard 3",
       "施法时间": "1 standard action",
       "成分": "V, S, DF",

@@ -412,6 +412,48 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     };
 
+    const looksLikeLevelText = (text) => {
+        const value = (text || '').replace(/\s+/g, ' ').trim();
+        if (!value) return false;
+        if (/[防护咒法预言惑控塑能幻术死灵变化变形通用]/.test(value) || /abjuration|conjuration|divination|enchantment|evocation|illusion|necromancy|transmutation|universal/i.test(value)) {
+            return false;
+        }
+        return parseProfessionEntries(value).length > 0;
+    };
+
+    const SCHOOL_TRANSLATIONS = {
+        abjuration: '防护系',
+        conjuration: '咒法系',
+        divination: '预言系',
+        enchantment: '惑控系',
+        evocation: '塑能系',
+        illusion: '幻术系',
+        necromancy: '死灵系',
+        transmutation: '变化系',
+        universal: '通用系'
+    };
+
+    const splitSchoolText = (text) => {
+        const value = (text || '').replace(/\s+/g, ' ').trim();
+        if (!value) return { value: '', levelRemainder: '' };
+        const translated = SCHOOL_TRANSLATIONS[value.toLowerCase()];
+        if (translated) return { value: translated, levelRemainder: '' };
+        if (looksLikeLevelText(value)) {
+            return { value: '', levelRemainder: value };
+        }
+        const schoolPrefix = value.match(/^(防护系|咒法系|预言系|惑控系|塑能系|幻术系|死灵系|变化系|变形系|通用系)(?:\s*[(（][^)）]{1,20}[)）])?(?:\s*\[[^\]]{1,80}\])?/);
+        if (schoolPrefix) {
+            const school = schoolPrefix[0].trim();
+            const remainder = value.slice(schoolPrefix[0].length).trim();
+            const hasFieldMarker = /^(学派|环位|等级|施法时间|成分|范围|目标|区域|持续时间|持续|豁免|法术抗力)(?:\s|$)/.test(remainder);
+            const hasProse = /^(你|目标|生物|法术|该法术|当|如果|吟诵|祷言)/.test(remainder);
+            if (remainder && (remainder.length > 20 || hasFieldMarker || hasProse)) {
+                return { value: school, levelRemainder: remainder };
+            }
+        }
+        return { value, levelRemainder: '' };
+    };
+
     const splitAtProseMarker = (text, markers) => {
         const positions = markers
             .map(marker => text.indexOf(marker))
@@ -492,6 +534,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (field === 'spellResistance') {
             const result = splitSpellResistance(value);
             return { value: result.spellResistance, remainder: result.effectRemainder };
+        }
+        if (field === 'school') {
+            const result = splitSchoolText(value);
+            return { value: result.value, remainder: result.levelRemainder };
         }
         if (field === 'level') {
             return splitLevelText(value);
@@ -608,9 +654,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const name = String(pickSpellField(normalizedSpell, ['name', '名称', '中文名', '译名']) || '');
         if (!name) return null;
         const rawEffect = pickSpellField(normalizedSpell, ['法术效果', '效果', 'effect']) || '';
+        const school = splitPollutedField('school', pickSpellField(normalizedSpell, ['学派', 'school']) || '');
+        const levelSource = [
+            pickSpellField(normalizedSpell, ['等级', 'level_raw', '等級']) || '',
+            school.remainder
+        ].map(part => (part || '').trim()).filter(Boolean).join('，');
         const level = splitPollutedField(
             'level',
-            applyLevelOverride(name, pickSpellField(normalizedSpell, ['等级', 'level_raw', '等級']) || '')
+            applyLevelOverride(name, levelSource)
         );
         const components = splitPollutedField('components', pickSpellField(normalizedSpell, ['成分', 'components']) || '');
         const spellRange = splitPollutedField('range', pickSpellField(normalizedSpell, ['范围', 'range']) || '');
@@ -638,7 +689,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ...normalizedSpell,
             name,
             display_name: deriveDisplayName(normalizedSpell),
-            学派: pickSpellField(normalizedSpell, ['学派', 'school']) || '',
+            学派: school.value,
             施法时间: pickSpellField(normalizedSpell, ['施法时间', 'cast_time']) || '',
             成分: components.value,
             范围: spellRange.value,

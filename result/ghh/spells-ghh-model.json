@@ -415,7 +415,7 @@
     "spell_id": "ghh-0008",
     "name": "Resize Item",
     "source_book": "ghh",
-    "school": "transmutation",
+    "school": "变化系",
     "level_raw": "arcanist 3, sorcerer 3, wizard 3",
     "level_by_class": [
       {
@@ -443,7 +443,7 @@
     "raw_fields": {
       "name": "Resize Item",
       "source_book": "ghh",
-      "学派": "transmutation",
+      "学派": "变化系",
       "等级": "arcanist 3, sorcerer 3, wizard 3",
       "施法时间": "1 standard action",
       "成分": "V, S, M (silver calipers worth 25 gp)",

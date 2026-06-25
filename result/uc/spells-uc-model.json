@@ -2701,8 +2701,8 @@
     "spell_id": "uc-0061",
     "name": "进阶生命通道（Life Conduit, Improved）",
     "source_book": "uc",
-    "school": "召唤师 3",
-    "level_raw": "",
+    "school": "咒法系 (医疗)",
+    "level_raw": "召唤师 3",
     "level_by_class": [],
     "cast_time": "",
     "components": "",
@@ -2717,7 +2717,8 @@
       "name": "进阶生命通道（Life Conduit, Improved）",
       "source_book": "uc",
       "效果": "",
-      "学派": "召唤师 3"
+      "学派": "咒法系 (医疗)",
+      "等级": "召唤师 3"
     },
     "name_zh": "进阶生命通道",
     "name_en": "Life Conduit, Improved"
@@ -3726,8 +3727,8 @@
     "spell_id": "uc-0084",
     "name": "共用召唤坐骑（Mount, Communal）",
     "source_book": "uc",
-    "school": "魔战士 2, 术士/法师 2, 召唤师 2, 女巫 2",
-    "level_raw": "",
+    "school": "咒法系 (召唤)",
+    "level_raw": "魔战士 2, 术士/法师 2, 召唤师 2, 女巫 2",
     "level_by_class": [],
     "cast_time": "",
     "components": "",
@@ -3742,7 +3743,8 @@
       "name": "共用召唤坐骑（Mount, Communal）",
       "source_book": "uc",
       "效果": "最多6匹坐骑\n这个法术工作方式如同召唤坐骑 (Mount)，不过你可以召唤最多6匹轻型马或矮种马，然后你可以将法术持续时间以2小时为单位分配给每一只召唤物。",
-      "学派": "魔战士 2, 术士/法师 2, 召唤师 2, 女巫 2"
+      "学派": "咒法系 (召唤)",
+      "等级": "魔战士 2, 术士/法师 2, 召唤师 2, 女巫 2"
     },
     "name_zh": "共用召唤坐骑",
     "name_en": "Mount, Communal"

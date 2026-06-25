@@ -1,4 +1,4 @@
-﻿# PFSpellRAG v1.2
+# PFSpellRAG v1.2.1
 
 Pathfinder（PF）法术检索与智能问答系统。  
 当前版本同时包含完整 RAG 运行形态和精简资料浏览/车卡器运行形态。
@@ -113,9 +113,9 @@ python run_lite.py
 
 - `packaging/legacy/PFSpellRAG.spec`：历史 PyInstaller 打包配置
 - `scripts/package/package_lite.py`：精简分发版打包脚本
-- `dist/PFSearcher_v1.2_portable.zip`：完整版本可分发便携包
-- `dist/PFSearcherLite_v1.2_portable.zip`：精简版本可分发便携包
-- `dist/PFSearcher_v1.2_portable/`、`dist/PFSearcherLite_v1.2_portable/`：便携运行目录（`exe + web + result + data`）
+- `dist/PFSearcher_v1.2.1_portable.zip`：完整版本可分发便携包
+- `dist/PFSearcherLite_v1.2.1_portable.zip`：精简版本可分发便携包
+- `dist/PFSearcher_v1.2.1_portable/`、`dist/PFSearcherLite_v1.2.1_portable/`：便携运行目录（`exe + web + result + data`）
 
 ## 4. 核心流程（简化）
 

@@ -3705,7 +3705,7 @@
     "name": "高等荣耀之路（Path of Glory, Greater）",
     "source_book": "ACG",
     "school": "咒法系（医疗）",
-    "level_raw": "吟游诗人 4，牧师 4 该法术的功能如同荣耀之路（Path of Glory）一般，不过法术能够提供5点治疗以取代原本的1点。",
+    "level_raw": "吟游诗人 4，牧师 4",
     "level_by_class": [
       {
         "class": "吟游诗人",
@@ -3719,7 +3719,7 @@
     "duration": "",
     "save": "",
     "spell_resistance": "",
-    "effect": "",
+    "effect": "该法术的功能如同荣耀之路（Path of Glory）一般，不过法术能够提供5点治疗以取代原本的1点。",
     "level_unparsed": [
       "牧师 4 该法术的功能如同荣耀之路（Path of Glory）一般",
       "不过法术能够提供5点治疗以取代原本的1点。"
@@ -3727,9 +3727,9 @@
     "raw_fields": {
       "name": "高等荣耀之路（Path of Glory, Greater）",
       "来源": "ACG",
-      "效果": "",
+      "效果": "该法术的功能如同荣耀之路（Path of Glory）一般，不过法术能够提供5点治疗以取代原本的1点。",
       "学派": "咒法系（医疗）",
-      "等级": "吟游诗人 4，牧师 4 该法术的功能如同荣耀之路（Path of Glory）一般，不过法术能够提供5点治疗以取代原本的1点。"
+      "等级": "吟游诗人 4，牧师 4"
     }
   },
   {
@@ -4264,7 +4264,7 @@
     "name": "高等护命屏障（Shield of Fortification, Greater）",
     "source_book": "ACG",
     "school": "防护系",
-    "level_raw": "牧师 4，审判者 3，圣武士 3 该法术的功能如同护命屏障（Shield of Fortification）一般，不过它有50%的概率使重击或偷袭失效，仅造成普通的伤害，而非原本的25%。",
+    "level_raw": "牧师 4，审判者 3，圣武士 3",
     "level_by_class": [
       {
         "class": "牧师",
@@ -4282,7 +4282,7 @@
     "duration": "",
     "save": "",
     "spell_resistance": "",
-    "effect": "",
+    "effect": "该法术的功能如同护命屏障（Shield of Fortification）一般，不过它有50%的概率使重击或偷袭失效，仅造成普通的伤害，而非原本的25%。",
     "level_unparsed": [
       "圣武士 3 该法术的功能如同护命屏障（Shield of Fortification）一般",
       "不过它有50%的概率使重击或偷袭失效",
@@ -4292,9 +4292,9 @@
     "raw_fields": {
       "name": "高等护命屏障（Shield of Fortification, Greater）",
       "来源": "ACG",
-      "效果": "",
+      "效果": "该法术的功能如同护命屏障（Shield of Fortification）一般，不过它有50%的概率使重击或偷袭失效，仅造成普通的伤害，而非原本的25%。",
       "学派": "防护系",
-      "等级": "牧师 4，审判者 3，圣武士 3 该法术的功能如同护命屏障（Shield of Fortification）一般，不过它有50%的概率使重击或偷袭失效，仅造成普通的伤害，而非原本的25%。"
+      "等级": "牧师 4，审判者 3，圣武士 3"
     }
   },
   {
@@ -4608,7 +4608,7 @@
     "name": "碎法咒（Spellcrash）",
     "source_book": "ACG",
     "school": "防护系",
-    "level_raw": "牧师 6，术士/法师 6，女巫 6 该法术的功能如同次等碎法咒（Spellcrash, Lesser）一般，不过它能够影响5级或者更低等级的准备好的法术或法术位。",
+    "level_raw": "牧师 6，术士/法师 6，女巫 6",
     "level_by_class": [
       {
         "class": "牧师",
@@ -4626,7 +4626,7 @@
     "duration": "",
     "save": "",
     "spell_resistance": "",
-    "effect": "",
+    "effect": "该法术的功能如同次等碎法咒（Spellcrash, Lesser）一般，不过它能够影响5级或者更低等级的准备好的法术或法术位。",
     "level_unparsed": [
       "女巫 6 该法术的功能如同次等碎法咒（Spellcrash",
       "Lesser）一般",
@@ -4635,9 +4635,9 @@
     "raw_fields": {
       "name": "碎法咒（Spellcrash）",
       "来源": "ACG",
-      "效果": "",
+      "效果": "该法术的功能如同次等碎法咒（Spellcrash, Lesser）一般，不过它能够影响5级或者更低等级的准备好的法术或法术位。",
       "学派": "防护系",
-      "等级": "牧师 6，术士/法师 6，女巫 6 该法术的功能如同次等碎法咒（Spellcrash, Lesser）一般，不过它能够影响5级或者更低等级的准备好的法术或法术位。"
+      "等级": "牧师 6，术士/法师 6，女巫 6"
     }
   },
   {
@@ -4645,7 +4645,7 @@
     "name": "高等碎法咒（Spellcrash, Greater）",
     "source_book": "ACG",
     "school": "防护系",
-    "level_raw": "牧师 8，术士/法师 8，女巫 8 该法术的功能如同次等碎法咒（Spellcrash, Lesser）一般，不过它能够影响7级或者更低等级的准备好的法术或法术位。",
+    "level_raw": "牧师 8，术士/法师 8，女巫 8",
     "level_by_class": [
       {
         "class": "牧师",
@@ -4663,7 +4663,7 @@
     "duration": "",
     "save": "",
     "spell_resistance": "",
-    "effect": "",
+    "effect": "该法术的功能如同次等碎法咒（Spellcrash, Lesser）一般，不过它能够影响7级或者更低等级的准备好的法术或法术位。",
     "level_unparsed": [
       "女巫 8 该法术的功能如同次等碎法咒（Spellcrash",
       "Lesser）一般",
@@ -4672,9 +4672,9 @@
     "raw_fields": {
       "name": "高等碎法咒（Spellcrash, Greater）",
       "来源": "ACG",
-      "效果": "",
+      "效果": "该法术的功能如同次等碎法咒（Spellcrash, Lesser）一般，不过它能够影响7级或者更低等级的准备好的法术或法术位。",
       "学派": "防护系",
-      "等级": "牧师 8，术士/法师 8，女巫 8 该法术的功能如同次等碎法咒（Spellcrash, Lesser）一般，不过它能够影响7级或者更低等级的准备好的法术或法术位。"
+      "等级": "牧师 8，术士/法师 8，女巫 8"
     }
   },
   {

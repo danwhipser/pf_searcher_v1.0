@@ -424,19 +424,54 @@ document.addEventListener('DOMContentLoaded', () => {
         return { value, remainder };
     };
 
+    const isPlausibleLevelEntry = (entry) => {
+        const text = (entry || '').replace(/\s+/g, ' ').trim();
+        const className = text.replace(/\s*[0-9]\s*$/, '').trim();
+        if (!className || className.length > 40) return false;
+        if (/[。！？：:]/.test(className)) return false;
+        return ![
+            '该法术',
+            '此法术',
+            '这个法术',
+            '该能力',
+            '不过',
+            '但是',
+            '如果',
+            '若',
+            '当你',
+            '目标',
+            '受术者',
+            '你可以',
+            '你能够',
+            '获得',
+            '拥有',
+            '提高',
+            '造成',
+            '每施法者',
+            '施法者等级',
+            '可创造',
+            '类似于',
+            '功能',
+            '方式如同',
+        ].some(marker => className.includes(marker));
+    };
+
     const splitLevelText = (text) => {
         let pos = 0;
         let lastEnd = 0;
+        const entries = [];
         const entryRe = /\s*(?:[,，、;；]\s*)?((?:领域\s+)?[^,，、;；0-9]{1,30}?\s*[0-9])/y;
         while (pos < text.length) {
             entryRe.lastIndex = pos;
             const match = entryRe.exec(text);
             if (!match) break;
+            if (!isPlausibleLevelEntry(match[1])) break;
+            entries.push(match[1].replace(/\s+/g, ' ').trim());
             lastEnd = entryRe.lastIndex;
             pos = entryRe.lastIndex;
         }
         if (!lastEnd) return { value: text, remainder: '' };
-        const value = text.slice(0, lastEnd).replace(/^[,，、;；\s]+|[,，、;；\s]+$/g, '');
+        const value = entries.join('，').replace(/^[,，、;；\s]+|[,，、;；\s]+$/g, '');
         const remainder = text.slice(lastEnd).trim();
         if (remainder.length < 20) return { value: text, remainder: '' };
         return { value, remainder };

@@ -392,7 +392,7 @@
     "name": "魔宠转借（Transfer Familiar）",
     "source_book": "ff",
     "school": "塑能",
-    "level_raw": "术士/法师/奥能师 6，女巫 6 出处 为主而伤（Bleed For Your Master） 反圣武士2，德鲁伊4，游侠3，术士/法师3，女巫3",
+    "level_raw": "术士/法师/奥能师 6，女巫 6",
     "level_by_class": [
       {
         "class": "术士/法师/奥能师",
@@ -426,14 +426,14 @@
     "duration": "1天/等级（D）",
     "save": "无",
     "spell_resistance": "无",
-    "effect": "动物档案馆 为主而亡（Die For Your Master） 反圣武士4，德鲁伊5，术士/法师5，女巫5 动物档案馆 魔宠幻象（Familiar Flgment） 术士/法师 2，女巫 2 动物档案馆 魔宠融合（Familiar Melding） 术士/法师 4，女巫 4 极限魔法 友伴复活（Raise Animal Companion） 德鲁伊 5，圣武士 4，游侠 4 极限魔法 感官共享（Share Senses） 术士/法师 4，女巫 3 进阶玩者手册 共享形态（Share Shape） 游侠 3，术士/法师 4，女巫 4 动物档案馆 护卫伙伴（Shield Companion） 反圣武士1，德鲁伊1，圣武士1，游侠1，术士/法师1，女巫1 动物档案馆\n你暂时将自己魔宠的控制权转移给其他自愿的生物。你、你的魔宠和目标生物在施放该法术时都必须彼此接触。目标会获得具有魔宠时通常会获得的所有好处和能力，包括法术共享（Share Spells）、与魔宠交谈*（speak with the familiar）等等。你在法术的持续时间内会失去所有这些好处。若目标已经具有魔宠，则法术会失败。 【原译者注：实际上是魔宠具有与主人交谈（Speak with Master）而不是主人具有与魔宠交谈（speak with the familiar），不过原文如此。】 其他魔宠法术（Other Spells） 除了本书中刊载的新法术，希望最大限度地将法术与魔宠相结合的施法者还可以选择下列法术，它们分别出自动物档案馆（Pathfinder Player Companion: Animal Archive）以及其他拓展资源。 法术",
+    "effect": "动物档案馆 为主而亡（Die For Your Master） 反圣武士4，德鲁伊5，术士/法师5，女巫5 动物档案馆 魔宠幻象（Familiar Flgment） 术士/法师 2，女巫 2 动物档案馆 魔宠融合（Familiar Melding） 术士/法师 4，女巫 4 极限魔法 友伴复活（Raise Animal Companion） 德鲁伊 5，圣武士 4，游侠 4 极限魔法 感官共享（Share Senses） 术士/法师 4，女巫 3 进阶玩者手册 共享形态（Share Shape） 游侠 3，术士/法师 4，女巫 4 动物档案馆 护卫伙伴（Shield Companion） 反圣武士1，德鲁伊1，圣武士1，游侠1，术士/法师1，女巫1 动物档案馆\n你暂时将自己魔宠的控制权转移给其他自愿的生物。你、你的魔宠和目标生物在施放该法术时都必须彼此接触。目标会获得具有魔宠时通常会获得的所有好处和能力，包括法术共享（Share Spells）、与魔宠交谈*（speak with the familiar）等等。你在法术的持续时间内会失去所有这些好处。若目标已经具有魔宠，则法术会失败。 【原译者注：实际上是魔宠具有与主人交谈（Speak with Master）而不是主人具有与魔宠交谈（speak with the familiar），不过原文如此。】 其他魔宠法术（Other Spells） 除了本书中刊载的新法术，希望最大限度地将法术与魔宠相结合的施法者还可以选择下列法术，它们分别出自动物档案馆（Pathfinder Player Companion: Animal Archive）以及其他拓展资源。 法术\n出处 为主而伤（Bleed For Your Master） 反圣武士2，德鲁伊4，游侠3，术士/法师3，女巫3",
     "level_unparsed": [],
     "raw_fields": {
       "name": "魔宠转借（Transfer Familiar）",
       "source_book": "ff",
-      "效果": "动物档案馆 为主而亡（Die For Your Master） 反圣武士4，德鲁伊5，术士/法师5，女巫5 动物档案馆 魔宠幻象（Familiar Flgment） 术士/法师 2，女巫 2 动物档案馆 魔宠融合（Familiar Melding） 术士/法师 4，女巫 4 极限魔法 友伴复活（Raise Animal Companion） 德鲁伊 5，圣武士 4，游侠 4 极限魔法 感官共享（Share Senses） 术士/法师 4，女巫 3 进阶玩者手册 共享形态（Share Shape） 游侠 3，术士/法师 4，女巫 4 动物档案馆 护卫伙伴（Shield Companion） 反圣武士1，德鲁伊1，圣武士1，游侠1，术士/法师1，女巫1 动物档案馆\n你暂时将自己魔宠的控制权转移给其他自愿的生物。你、你的魔宠和目标生物在施放该法术时都必须彼此接触。目标会获得具有魔宠时通常会获得的所有好处和能力，包括法术共享（Share Spells）、与魔宠交谈*（speak with the familiar）等等。你在法术的持续时间内会失去所有这些好处。若目标已经具有魔宠，则法术会失败。 【原译者注：实际上是魔宠具有与主人交谈（Speak with Master）而不是主人具有与魔宠交谈（speak with the familiar），不过原文如此。】 其他魔宠法术（Other Spells） 除了本书中刊载的新法术，希望最大限度地将法术与魔宠相结合的施法者还可以选择下列法术，它们分别出自动物档案馆（Pathfinder Player Companion: Animal Archive）以及其他拓展资源。 法术",
+      "效果": "动物档案馆 为主而亡（Die For Your Master） 反圣武士4，德鲁伊5，术士/法师5，女巫5 动物档案馆 魔宠幻象（Familiar Flgment） 术士/法师 2，女巫 2 动物档案馆 魔宠融合（Familiar Melding） 术士/法师 4，女巫 4 极限魔法 友伴复活（Raise Animal Companion） 德鲁伊 5，圣武士 4，游侠 4 极限魔法 感官共享（Share Senses） 术士/法师 4，女巫 3 进阶玩者手册 共享形态（Share Shape） 游侠 3，术士/法师 4，女巫 4 动物档案馆 护卫伙伴（Shield Companion） 反圣武士1，德鲁伊1，圣武士1，游侠1，术士/法师1，女巫1 动物档案馆\n你暂时将自己魔宠的控制权转移给其他自愿的生物。你、你的魔宠和目标生物在施放该法术时都必须彼此接触。目标会获得具有魔宠时通常会获得的所有好处和能力，包括法术共享（Share Spells）、与魔宠交谈*（speak with the familiar）等等。你在法术的持续时间内会失去所有这些好处。若目标已经具有魔宠，则法术会失败。 【原译者注：实际上是魔宠具有与主人交谈（Speak with Master）而不是主人具有与魔宠交谈（speak with the familiar），不过原文如此。】 其他魔宠法术（Other Spells） 除了本书中刊载的新法术，希望最大限度地将法术与魔宠相结合的施法者还可以选择下列法术，它们分别出自动物档案馆（Pathfinder Player Companion: Animal Archive）以及其他拓展资源。 法术\n出处 为主而伤（Bleed For Your Master） 反圣武士2，德鲁伊4，游侠3，术士/法师3，女巫3",
       "学派": "塑能",
-      "等级": "术士/法师/奥能师 6，女巫 6 出处 为主而伤（Bleed For Your Master） 反圣武士2，德鲁伊4，游侠3，术士/法师3，女巫3",
+      "等级": "术士/法师/奥能师 6，女巫 6",
       "施法时间": "标准动作",
       "成分": "语言，姿势",
       "范围": "接触",

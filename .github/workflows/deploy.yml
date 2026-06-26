@@ -44,7 +44,7 @@ jobs:
             --exclude='.git' \
             --exclude='.venv' \
             --exclude='__pycache__' \
-            -czf pf-searcher-release.tgz .
+            -czf "$RUNNER_TEMP/pf-searcher-release.tgz" .
 
       - name: Push package to server
         env:
@@ -58,4 +58,4 @@ jobs:
             -o StrictHostKeyChecking=yes \
             -p "$SERVER_PORT" \
             "$SERVER_USER@$SERVER_HOST" \
-            < pf-searcher-release.tgz
+            < "$RUNNER_TEMP/pf-searcher-release.tgz"

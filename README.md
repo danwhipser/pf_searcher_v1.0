@@ -11,6 +11,7 @@ Pathfinder（PF）法术检索与智能问答系统。
 - 按学派筛选法术，并将神话法术作为独立分类
 - 使用组合筛选页按职业、环位、学派、来源等条件检索法术
 - 浏览 PF 常见状态规则与关键效果
+- 使用人物卡状态记录器维护战斗/冒险状态档案
 - 浏览专长、职业、奇物资料
 - 使用车卡器记录本地角色卡草稿，并从资料库加入职业、专长、法术、奇物
 - 智能问答（RAG）：先检索再生成，返回带引用的回答
@@ -61,7 +62,7 @@ python run_web.py
 python run_lite.py
 ```
 
-精简版只保留前端展示、资料查询和车卡器，不加载 RAG、向量索引和 LLM 相关依赖。
+精简版只保留前端展示、资料查询、车卡器和人物卡状态记录器，不加载 RAG、向量索引和 LLM 相关依赖。
 
 ## 3. 目录与各部分作用
 
@@ -91,14 +92,17 @@ python run_lite.py
 ### 3.3 前端（`web/`）
 
 - `index.html`：页面结构（模式切换、筛选、结果区）
+- `status_tracker.html`：人物卡状态记录器，作为与车卡器、资料查询并列的独立模块。
 - `spells_filter.html`：组合式法术筛选页面，面向资料查询中的快速筛选。
 - `conditions.html`：状态资料查询页面，读取 `assets/data/conditions.json`。
+- `assets/js/status-tracker.js`：状态记录器逻辑，支持多角色档案、8 个状态栏位、自动保存、JSON 导入导出。
 - `assets/js/spell-rag.js`：法术检索与 RAG 前端核心逻辑
   - 名称搜索 / 关键词搜索 / 职业搜索 / RAG 提问
   - API 调用与结果渲染（含 Markdown 表格渲染）
 - `assets/js/spell-filter-core.js`、`assets/js/spell-filter.js`：组合筛选页的数据归一化、过滤与渲染逻辑。
 - `assets/js/conditions.js`：状态查询页的搜索、分类筛选和详情渲染逻辑。
 - `assets/css/spells.css`：法术页面样式
+- `assets/css/status-tracker.css`：人物卡状态记录器样式。
 - `assets/css/spell-filter.css`、`assets/css/spell-view-switch.css`：组合筛选页样式。
 - `assets/css/conditions.css`：状态查询页样式。
 - `assets/css/browser.css`：专长/职业/奇物浏览页面通用样式

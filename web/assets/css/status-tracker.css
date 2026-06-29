@@ -194,15 +194,22 @@ button,
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 6px;
+  gap: 10px;
 }
 
 .summary-pill {
   border-radius: 999px;
-  background: #f0f3f6;
-  color: var(--muted);
-  padding: 5px 9px;
-  font-size: 12px;
+  background: #e8edf2;
+  color: #334155;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .section-content { padding-top: 16px; }
@@ -327,5 +334,16 @@ button,
   .form-grid,
   .section-list {
     grid-template-columns: 1fr;
+  }
+
+  .profile-summary {
+    justify-content: flex-start;
+  }
+
+  .summary-pill {
+    min-height: 38px;
+    padding: 8px 12px;
+    font-size: 14px;
+    white-space: normal;
   }
 }

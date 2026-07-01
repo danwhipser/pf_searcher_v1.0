@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pathfinder_tools_v1.2.2 人物卡状态记录器</title>
-  <link rel="stylesheet" href="assets/css/status-tracker.css?v=20260701-source-type-v1" />
+  <title>pathfinder_tools_v1.2.3 人物卡状态记录器</title>
+  <link rel="stylesheet" href="assets/css/status-tracker.css?v=20260701-clear-v1" />
 </head>
 <body>
   <main class="tracker-shell">
     <header class="tracker-header">
       <div>
-        <h1>pathfinder_tools_v1.2.2 人物卡状态记录器</h1>
+        <h1>pathfinder_tools_v1.2.3 人物卡状态记录器</h1>
         <p id="save-status" class="save-status">未保存</p>
         <nav class="section-links" aria-label="功能导航">
           <span class="section-label">车卡器</span>
@@ -31,6 +31,8 @@
         <button type="button" data-action="new-profile">新建</button>
         <button type="button" data-action="duplicate-profile">复制</button>
         <button type="button" class="secondary-btn" data-action="delete-profile">删除</button>
+        <button type="button" class="secondary-btn" data-action="clear-current-section">清空本页</button>
+        <button type="button" class="secondary-btn" data-action="clear-current-profile">清空状态卡</button>
         <button type="button" data-action="export-profile">导出 JSON</button>
         <label class="import-btn" for="import-profile-input">导入 JSON</label>
         <input id="import-profile-input" type="file" accept="application/json" hidden />
@@ -56,6 +58,6 @@
     </section>
   </main>
 
-  <script src="assets/js/status-tracker.js?v=20260701-source-type-v1"></script>
+  <script src="assets/js/status-tracker.js?v=20260701-clear-v1"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿# PF_RAG 代码结构与功能说明
+# PF_RAG 代码结构与功能说明
 
 本文档说明当前 PF_RAG 项目的主要代码组成、各部分职责，以及目前已经完成的功能。项目当前同时包含完整 RAG 运行版和精简分发版。
 
@@ -653,7 +653,7 @@ LLM 回答生成模块。
   - `start.bat`
   - `install.bat`
   - `README_中文.txt`
-  - `dist/pathfinder_tools_lite_v1.2.2_portable.zip`
+  - `dist/pathfinder_tools_lite_v1.2.3_portable.zip`
 
 ## 9. 打包与分发
 
@@ -677,7 +677,7 @@ LLM 回答生成模块。
 
 - `run_lite.py`
 - `scripts/package/package_lite.py`
-- `dist/pathfinder_tools_lite_v1.2.2_portable.zip`
+- `dist/pathfinder_tools_lite_v1.2.3_portable.zip`
 
 特点：
 
@@ -723,7 +723,7 @@ LLM 回答生成模块。
 
 - 已新增轻量入口 `run_lite.py`。
 - 已新增精简打包脚本 `scripts/package/package_lite.py`。
-- 当前精简版目标产物为 `dist/pathfinder_tools_lite_v1.2.2_portable.zip`。
+- 当前精简版目标产物为 `dist/pathfinder_tools_lite_v1.2.3_portable.zip`。
 - 已生成中文说明文件 `README_中文.txt`。
 - 已验证精简版 exe 能启动本地服务。
 - 已验证 `/api/health`、`/api/spell-sources`、`/api/spells/keyword` 正常响应。

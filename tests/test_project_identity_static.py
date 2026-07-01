@@ -12,7 +12,7 @@ def test_project_identity_constants_are_current():
     version_py = read_text("pf_rag/version.py")
 
     assert 'APP_NAME = "pathfinder_tools"' in version_py
-    assert 'APP_VERSION = "1.2.2"' in version_py
+    assert 'APP_VERSION = "1.2.3"' in version_py
     assert 'APP_RELEASE_NAME = f"{APP_NAME}_v{APP_VERSION}"' in version_py
 
 
@@ -28,7 +28,7 @@ def test_user_facing_project_name_uses_pathfinder_tools():
     ]
     combined = "\n".join(read_text(path) for path in files)
 
-    assert "pathfinder_tools_v1.2.2" in combined
+    assert "pathfinder_tools_v1.2.3" in combined
     assert "PFSpellRAG v1.2.1" not in combined
     assert "PF Searcher Lite" not in combined
     assert "PF Spell RAG" not in combined

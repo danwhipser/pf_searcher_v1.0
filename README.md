@@ -1,4 +1,4 @@
-# pathfinder_tools_v1.2.2
+# pathfinder_tools_v1.2.3
 
 Pathfinder（PF）本地工具台。
 当前版本包含资料查询、车卡器、人物卡状态记录器，以及完整 RAG 运行形态。
@@ -95,7 +95,7 @@ python run_lite.py
 - `status_tracker.html`：人物卡状态记录器，作为与车卡器、资料查询并列的独立模块。
 - `spells_filter.html`：组合式法术筛选页面，面向资料查询中的快速筛选。
 - `conditions.html`：状态资料查询页面，读取 `assets/data/conditions.json`。
-- `assets/js/status-tracker.js`：状态记录器逻辑，支持多角色档案、8 个状态栏位、基础数值总览/可收缩详情栏/来源明细、自动保存、JSON 导入导出。
+- `assets/js/status-tracker.js`：状态记录器逻辑，支持多角色档案、9 个状态栏位、基础数值总览/可收缩详情栏/来源明细/多攻击方式/清空本页与状态卡、自动保存、JSON 导入导出。
 - `assets/js/spell-rag.js`：法术检索与 RAG 前端核心逻辑
   - 名称搜索 / 关键词搜索 / 职业搜索 / RAG 提问
   - API 调用与结果渲染（含 Markdown 表格渲染）
@@ -127,9 +127,9 @@ python run_lite.py
 
 - `packaging/legacy/*.spec`：历史 PyInstaller 打包配置，保留作旧版本参考
 - `scripts/package/package_lite.py`：精简分发版打包脚本
-- `dist/pathfinder_tools_v1.2.2_portable.zip`：完整版本可分发便携包
-- `dist/pathfinder_tools_lite_v1.2.2_portable.zip`：精简版本可分发便携包
-- `dist/pathfinder_tools_v1.2.2_portable/`、`dist/pathfinder_tools_lite_v1.2.2_portable/`：便携运行目录（`exe + web + result + data`）
+- `dist/pathfinder_tools_v1.2.3_portable.zip`：完整版本可分发便携包
+- `dist/pathfinder_tools_lite_v1.2.3_portable.zip`：精简版本可分发便携包
+- `dist/pathfinder_tools_v1.2.3_portable/`、`dist/pathfinder_tools_lite_v1.2.3_portable/`：便携运行目录（`exe + web + result + data`）
 
 ## 4. 核心流程（简化）
 
@@ -154,4 +154,20 @@ python run_lite.py
 
 ## 7. 更新说明
 
-完整更新记录见 `CHANGELOG.md` 和 `docs/更新文档.md`。当前项目发布名为 `pathfinder_tools_v1.2.2`。
+当前项目发布名为 `pathfinder_tools_v1.2.3`。
+
+### v1.2.3 - 2026-07-01
+
+本版本在 `pathfinder_tools_v1.2.2` 的基础上继续完善人物卡状态记录器，重点是把状态记录器从基础可填写推进到更适合实战记录的形态。
+
+- 新增“攻击方式”栏位，用于记录多重攻击、全回合攻击、天生武器、远程攻击和其他常用攻击方案。
+- 修复新增攻击方式后状态记录器内容区空白的问题。
+- 基础数值详情栏支持来源明细、数值类型和更宽的右侧抽屉。
+- 新增“清空本页”和“清空状态卡”操作，清空前需要确认；清空状态卡时保留档案名和角色名。
+- 更新前端资源版本号，避免浏览器继续加载旧脚本。
+
+### 与 v1.2.2 的区分
+
+`v1.2.2` 主要完成项目统一命名、人物状态记录器第一阶段和基础详情栏建设；`v1.2.3` 是在此基础上的状态记录器体验与稳定性更新。
+
+完整更新记录见 `CHANGELOG.md` 和 `docs/更新文档.md`。

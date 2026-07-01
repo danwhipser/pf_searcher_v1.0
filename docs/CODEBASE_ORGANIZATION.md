@@ -1,4 +1,4 @@
-﻿# PF_RAG 代码系统整理说明
+# PF_RAG 代码系统整理说明
 
 本文档按用途把当前项目拆成 4 个层次：可分发应用、规则解析工具、RAG/前端主程序、数据与数据结构。当前仓库仍保持原目录不移动，避免破坏已经可运行的便携版本。
 
@@ -19,12 +19,12 @@
 - `scripts/package/package_portable.py`
   - 使用 PyInstaller 打包 `pathfinder_tools.exe`。
   - 复制 `web/`、`result/`、`data/chroma_db/`、`data/bm25_index/`。
-  - 生成 `dist/pathfinder_tools_v1.2.2_portable/` 和 `dist/pathfinder_tools_v1.2.2_portable.zip`。
+  - 生成 `dist/pathfinder_tools_v1.2.3_portable/` 和 `dist/pathfinder_tools_v1.2.3_portable.zip`。
   - 当前已收集 `chromadb`、`posthog`、`pypika`、`onnxruntime`、`tokenizers`，用于修复便携版 Chroma 加载问题。
 
 - `packaging/legacy/*.spec`
   - PyInstaller spec 文件。
-  - 历史打包配置。当前项目发布名已改为 `pathfinder_tools_v1.2.2`，新打包流程以 `scripts/package/package_portable.py` 为准。
+  - 历史打包配置。当前项目发布名已改为 `pathfinder_tools_v1.2.3`，新打包流程以 `scripts/package/package_portable.py` 为准。
 
 - `run_web.spec`
   - 旧的/备用打包配置。
@@ -32,11 +32,11 @@
 
 ### 打包产物
 
-- `dist/pathfinder_tools_v1.2.2_portable/`
+- `dist/pathfinder_tools_v1.2.3_portable/`
   - 当前可运行便携目录。
   - 包含 `pathfinder_tools.exe`、`start.bat`、`web/`、`result/`、`data/`。
 
-- `dist/pathfinder_tools_v1.2.2_portable.zip`
+- `dist/pathfinder_tools_v1.2.3_portable.zip`
   - 当前可分发 zip。
 
 - `build/`

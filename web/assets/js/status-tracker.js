@@ -5,7 +5,7 @@
   const SECTIONS = [
     ["basic", "基础数值", "记录 HP、防御、豁免、速度、攻击加值、CMB/CMD、先攻、种族和属性。"],
     ["attacks", "攻击方式", "记录多重攻击、全回合攻击、天生武器、远程攻击和其他常用攻击方案。"],
-    ["classFeatures", "职业能力", "记录职业、等级，以及每一等级对应的职业能力。"]
+    ["classFeatures", "职业能力", "记录职业、等级，以及每一等级对应的职业能力。"],
     ["spells", "法术", "记录法术列表、法术位、法术 DC 和施法职业备注。"],
     ["feats", "当前专长", "记录当前专长与专长效果。"],
     ["buffs", "当前 Buff", "记录当前生效的 Buff、来源、持续时间和效果。"],
@@ -1061,6 +1061,51 @@
     renderAll();
   }
 
+
+  function resetSection(profile, sectionKey) {
+    const fresh = defaultProfile(profile.name || profile.basicStats.identity.characterName || "新角色");
+    if (sectionKey === "basic") {
+      const keptName = profile.name;
+      const keptCharacterName = profile.basicStats.identity.characterName || keptName;
+      profile.basicStats = fresh.basicStats;
+      profile.name = keptName;
+      profile.basicStats.identity.characterName = keptCharacterName;
+      return;
+    }
+    if (sectionKey === "attacks") profile.attackProfiles = [];
+    if (sectionKey === "classFeatures") profile.classFeatures = [];
+    if (sectionKey === "spells") profile.spells = fresh.spells;
+    if (sectionKey === "feats") profile.feats = [];
+    if (sectionKey === "buffs") profile.buffs = [];
+    if (sectionKey === "companions") profile.companions = [];
+    if (sectionKey === "items") profile.items = [];
+    if (sectionKey === "notes") profile.notes = fresh.notes;
+  }
+
+  function clearCurrentSection() {
+    const section = SECTIONS.find(([key]) => key === activeSection) || SECTIONS[0];
+    if (!window.confirm(`确定清空当前页面“${section[1]}”的所有内容吗？此操作不可撤销。`)) return;
+    resetSection(activeProfile(), section[0]);
+    activeDetailId = null;
+    saveProfiles();
+    renderAll();
+  }
+
+  function clearCurrentProfile() {
+    const profile = activeProfile();
+    if (!window.confirm("确定清空当前角色档案的所有状态内容吗？此操作不可撤销。")) return;
+    const keptName = profile.name;
+    const keptCharacterName = profile.basicStats.identity.characterName || keptName;
+    const fresh = defaultProfile(keptName || keptCharacterName || "新角色");
+    fresh.id = profile.id;
+    fresh.name = keptName;
+    fresh.basicStats.identity.characterName = keptCharacterName;
+    const index = profiles.findIndex((item) => item.id === profile.id);
+    if (index >= 0) profiles[index] = fresh;
+    activeDetailId = null;
+    saveProfiles();
+    renderAll();
+  }
   function deleteProfile() {
     if (profiles.length <= 1) {
       window.alert("至少需要保留一个角色档案。");
@@ -1195,6 +1240,8 @@
     if (action === "remove-attack-profile") { removeAttackProfile(actionTarget.dataset.profileIndex); return; }
     if (action === "add-attack-line") { addAttackLine(actionTarget.dataset.profileIndex); return; }
     if (action === "remove-attack-line") { removeAttackLine(actionTarget.dataset.profileIndex, actionTarget.dataset.lineIndex); return; }
+    if (action === "clear-current-section") { clearCurrentSection(); return; }
+    if (action === "clear-current-profile") { clearCurrentProfile(); return; }
     if (action === "new-profile") newProfile();
     if (action === "duplicate-profile") duplicateProfile();
     if (action === "delete-profile") deleteProfile();

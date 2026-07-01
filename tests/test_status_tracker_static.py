@@ -216,3 +216,34 @@ def test_status_tracker_has_attack_profiles_section():
     ]
     for marker in expected_style_markers:
         assert marker in style
+
+def test_status_tracker_section_config_keeps_attacks_classes_and_spells_separate():
+    script = read_text("web/assets/js/status-tracker.js")
+
+    assert '["attacks", "攻击方式"' in script
+    assert '["classFeatures", "职业能力"' in script
+    assert '["spells", "法术"' in script
+    assert '职业能力", "记录职业、等级，以及每一等级对应的职业能力。"],' in script
+
+def test_status_tracker_can_clear_section_or_current_profile_with_confirmation():
+    page = read_text("web/status_tracker.html")
+    script = read_text("web/assets/js/status-tracker.js")
+
+    expected_page_markers = [
+        'data-action="clear-current-section"',
+        'data-action="clear-current-profile"',
+    ]
+    for marker in expected_page_markers:
+        assert marker in page
+
+    expected_script_markers = [
+        "clearCurrentSection",
+        "clearCurrentProfile",
+        "resetSection",
+        "clear-current-section",
+        "clear-current-profile",
+        "window.confirm",
+        "characterName",
+    ]
+    for marker in expected_script_markers:
+        assert marker in script
